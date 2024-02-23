@@ -15,9 +15,9 @@ return new class extends Migration
             $table->id();
             $table->string('nome', 40);
             $table->text('ingredienti');
-            $table->float('decorazione');
-            $table->string('linguaggi_usati', 50);
-            $table->string('repo_url', 200,);
+            $table->text('decorazione');
+            $table->string('preparazione', 300);
+            $table->string('image_url', 200,);
             $table->timestamps();
         });
     }
