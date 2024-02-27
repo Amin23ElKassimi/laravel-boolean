@@ -10,8 +10,7 @@ class DatabaseSeeder extends Seeder
     
     public function run(): void
     {
-       $this->call([
-        CocktailSeeder::class 
-       ]);
+
+        $this->call([TypeSeeder::class,CocktailSeeder::class]);
     }
 }   
