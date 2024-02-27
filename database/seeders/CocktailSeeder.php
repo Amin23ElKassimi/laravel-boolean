@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 use App\Models\Cocktail;
+use App\Models\Type;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -155,6 +156,9 @@ class CocktailSeeder extends Seeder
                 "image_url"=>"https://www.thecocktaildb.com/images/media/drink/t1tn0s1504374905.jpg",
             ),
         );
+
+        $typeIds = Type::all()->pluck('id');
+
         foreach ($cocktails as $cocktail) {
             $newCocktail = new Cocktail();
         
@@ -163,7 +167,9 @@ class CocktailSeeder extends Seeder
             $newCocktail->decorazione = $cocktail['decorazione'];
             $newCocktail->preparazione= $cocktail['preparazione'];
             $newCocktail->image_url = $cocktail['image_url'];
+            $newCocktail->type_id = $typeIds[rand(0, count($typeIds) - 1)];
             $newCocktail->save();
             }
+
 }
 }
