@@ -3,6 +3,10 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\CocktailController;
+use App\Http\Controllers\Api\TypeController;
+
+
+use App\Models\Type;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,3 +24,6 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::apiResource('/cocktails', CocktailController::class);
+
+Route::get('/types', [TypeController::class, 'index'])->name('types.index');
+Route::get('/types/{category}', [TypeController::class, 'show'])->name('types.show');
